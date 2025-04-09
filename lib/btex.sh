@@ -37,8 +37,8 @@ btex(){
 
          cmd="`eval "$cmd"`"
 
-         line="${line//$pat/$cmd}"
-         [ -n "$rem_line" ] && rem_line="${rem_line//$pat/}"
+         line="${line//"$pat"/$cmd}"
+         [ -n "$rem_line" ] && rem_line="${rem_line//"$pat"/}"
       done
 
       rem_line=
@@ -67,13 +67,13 @@ EOF
                   $cmd2
 EOF
                `"
-               rem_line=${line2/#$pat2/}
+               rem_line=${line2/#"$pat2"/}
                break
             fi
          done
 
          cmd="`eval "$cmd"`"
-         line="${line/%$pat/$cmd}"
+         line="${line/%"$pat"/$cmd}"
       fi
 
       printf "%s\n" "$line"
